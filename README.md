@@ -11,7 +11,7 @@ I am a [CakePHP][2] Plugin (Helper and DataSource) for the most awesome online f
   1. [Sign up][4] for a Wufoo account, remember your username.
   2. Extract the contents of this repo into *app/plugins/wufoo/* or use git clone from your plugins folder:
 		
-	git clone  git://github.com/shama/Cake-Wufoo-Plugin.git wufoo
+	git clone git://github.com/shama/Cake-Wufoo-Plugin.git wufoo
 
   3. Copy the following lines into *app/config/database.php* and add your username and api_key:
 
