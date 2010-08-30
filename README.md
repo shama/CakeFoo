@@ -11,15 +11,15 @@ I am a [CakePHP][2] Plugin (Helper and DataSource) for the most awesome online f
   1. [Sign up][4] for a Wufoo account, remember your username.
   2. Extract the contents of this repo into *app/plugins/wufoo/* or use git clone from your plugins folder:
 		
-	`git clone  git://github.com/shama/Cake-Wufoo-Plugin.git wufoo`
+	git clone  git://github.com/shama/Cake-Wufoo-Plugin.git wufoo
 
   3. Copy the following lines into *app/config/database.php* and add your username and api_key:
 
-		var $wufoo = array(
-			'datasource' => 'wufoo.wufoo',
-			'username' => 'USERNAME-HERE',
-			'api_key' => 'API-KEY-HERE',
-		);
+	var $wufoo = array(
+		'datasource' => 'wufoo.wufoo',
+		'username' => 'USERNAME-HERE',
+		'api_key' => 'API-KEY-HERE',
+	);
 
 *Can't find your API key? Login to wufoo.com, create a form, click on 'Code' then 'API Information'.*
 	
@@ -144,7 +144,7 @@ Deleting a web hook:
 ## License
 The MIT License (http://www.opensource.org/licenses/mit-license.php) Redistributions of files must retain the above copyright notice.
 
-## AUTHOR
+## Author
 Kyle Robinson Young, [kyletyoung.com][10]
 
 
