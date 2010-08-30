@@ -7,17 +7,21 @@ I am a [CakePHP][2] Plugin (Helper and DataSource) for the most awesome online f
 
 
 ## Let's Get Going!
-[Sign up][4] for a Wufoo account, remember your username.
 
-Copy the following lines into *app/config/database.php* and add your username and api_key:
+  1. [Sign up][4] for a Wufoo account, remember your username.
+  2. Extract the contents of this repo into *app/plugins/wufoo/* or use git clone from your plugins folder:
+		
+		git clone  git://github.com/shama/Cake-Wufoo-Plugin.git wufoo
 
-    var $wufoo = array(
-    	'datasource' => 'wufoo.wufoo',
-    	'username' => 'USERNAME-HERE',
-    	'api_key' => 'API-KEY-HERE',
-    );
+  3. Copy the following lines into *app/config/database.php* and add your username and api_key:
 
-Login to wufoo.com, create a form, click on 'Code' then 'API Information' to find your API key.
+		var $wufoo = array(
+			'datasource' => 'wufoo.wufoo',
+			'username' => 'USERNAME-HERE',
+			'api_key' => 'API-KEY-HERE',
+		);
+
+*Can't find your API key? Login to wufoo.com, create a form, click on 'Code' then 'API Information'.*
 	
 ## Wufoo Helper (Easily Embed Forms)
 
@@ -137,6 +141,13 @@ Deleting a web hook:
 *This function is for logging in other Wufoo users. You must have an [integration key][8] to retrieve an API key and access another Wufoo user. Read more about the login API [here][9].*
 
 
+## License
+The MIT License (http://www.opensource.org/licenses/mit-license.php) Redistributions of files must retain the above copyright notice.
+
+## AUTHOR
+Kyle Robinson Young, [kyletyoung.com][10]
+
+
   [1]: http://wufoo.com/images/wflogo.png
   [2]: http://cakephp.org/
   [3]: http://wufoo.com/
@@ -146,3 +157,4 @@ Deleting a web hook:
   [7]: http://wufoo.com/docs/integrations/webhooks/
   [8]: https://master.wufoo.com/forms/integration-key-application/
   [9]: http://wufoo.com/docs/api/v3/login/
+  [10]: http://kyletyoung.com
