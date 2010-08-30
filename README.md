@@ -1,13 +1,14 @@
 ![Wufoo][1]
 
-# What Am I?
+## What Am I?
 I am a [CakePHP][2] Plugin (Helper and DataSource) for the most awesome online form building tool known as [Wufoo][3]. 
 
 *Oh yeah and I require CakePHP 1.3+ and PHP5+.*
 
 
-# Let's Get Going!
+## Let's Get Going!
 [Sign up][4] for a Wufoo account, remember your username.
+
 Copy the following lines into *app/config/database.php* and add your username and api_key:
 
     var $wufoo = array(
@@ -18,16 +19,16 @@ Copy the following lines into *app/config/database.php* and add your username an
 
 Login to wufoo.com, create a form, click on 'Code' then 'API Information' to find your API key.
 	
-# Wufoo Helper (Easily Embed Forms)
+## Wufoo Helper (Easily Embed Forms)
 
     var $helpers = array('Wufoo.Wufoo');
 
-## Embed Form
+### Embed Form
 Embed a Wufoo form directly into your view:
 
     echo $this->Wufoo->embed('form-name-here');
 		
-## Embed Form (IFrame)
+### Embed Form (IFrame)
 Or if you prefer to use an iframe:
 
     echo $this->Wufoo->iframe('form-name-here');
@@ -46,7 +47,7 @@ Otherwise you can directly use the DataSource anywhere in your code:
 	));
 	
 
-## Forms
+### Forms
 Get all forms:
 
 	$forms = $this->Wufoo->findForms();
@@ -55,12 +56,12 @@ Get specific form:
 
 	$form = $this->Wufoo->findForm('form-name-here');
 		
-## Fields
+### Fields
 Get all fields in a form:
 		
 	$fields = $this->Wufoo->findFields('form-name-here');
 		
-## Entries
+### Entries
 Find all entries:
 
 	$entries = $this->Wufoo->findEntries('form-name-here');
@@ -90,11 +91,11 @@ Saving entries:
 		'Field2' => 'Young',
 	));
 
-## Users
+### Users
 
 	$users = $this->Wufoo->findUsers();
 		
-## Reports
+### Reports
 Get all reports:
 		
 	$reports = $this->Wufoo->findReports();
@@ -103,15 +104,15 @@ Get specific report:
 		
 	$report = $this->Wufoo->findReports('report-name-here');
 		
-## Widgets
+### Widgets
 		
 	$widgets = $this->Wufoo->findWidgets('report-name-here');
 
-## Comments
+### Comments
 		
 	$comments = $this->Wufoo->findComments('form-name-here');
 	
-## WebHooks
+### WebHooks
 Adding a web hook:
 		
 	$this->Wufoo->saveWebHook('form-name-here', array(
@@ -124,7 +125,7 @@ Deleting a web hook:
 
 *Read more about web hooks [here][7].*
 		
-## Login
+### Login
 	
 	$login = $this->Wufoo->login(array(
 		'integrationKey' => 'INTEGRATION-KEY-HERE',
