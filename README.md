@@ -15,11 +15,11 @@ I am a [CakePHP][2] Plugin (Helper and DataSource) for the most awesome online f
 
   3. Copy the following lines into *app/config/database.php* and add your username and api_key:
 
-	`var $wufoo = array(
-		'datasource' => 'wufoo.wufoo',
-		'username' => 'USERNAME-HERE',
-		'api_key' => 'API-KEY-HERE',
-	);`
+		var $wufoo = array(
+			'datasource' => 'wufoo.wufoo',
+			'username' => 'USERNAME-HERE',
+			'api_key' => 'API-KEY-HERE',
+		);
 
 *Can't find your API key? Login to wufoo.com, create a form, click on 'Code' then 'API Information'.*
 	
