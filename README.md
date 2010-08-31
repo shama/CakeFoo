@@ -148,7 +148,7 @@ The MIT License (http://www.opensource.org/licenses/mit-license.php) Redistribut
 Kyle Robinson Young, [kyletyoung.com][10]
 
 
-  [1]: http://wufoo.com/images/wflogo.png
+  [1]: http://dev.epiphanet.com/wufoo/img/Wufoo-Teal-Small.png
   [2]: http://cakephp.org/
   [3]: http://wufoo.com/
   [4]: http://wufoo.com/signup/
