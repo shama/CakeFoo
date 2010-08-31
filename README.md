@@ -1,7 +1,7 @@
 ![Wufoo][1]
 
 ## What Am I?
-I am a [CakePHP][2] Plugin (Helper and DataSource) for the most awesome online form building tool known as [Wufoo][3]. 
+I am CakeFoo, a [CakePHP][2] Plugin (Helper and DataSource) for the most awesome online form building tool known as [Wufoo][3]. 
 
 *Oh yeah and I require CakePHP 1.3+ and PHP5+.*
 
