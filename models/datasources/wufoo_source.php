@@ -32,6 +32,10 @@
  * @version 1
  * @link http://www.kyletyoung.com/code/cakephp_wufoo_plugin
  * 
+ * 
+ * TODO:
+ * 	Setup Caching
+ * 
  */
 class WufooSource extends DataSource {
 	
@@ -277,6 +281,38 @@ class WufooSource extends DataSource {
 	}
 	
 	/**
+	 * fieldMatch
+	 * WARNING: This does not work yet!
+	 * 
+	 * @param string $form
+	 * @param array $fields
+	 * @param array $control
+	 * @param string $provider
+	 * @return string
+	 */
+	public function fieldMatch($form=null, $fields=array(), $control=array(), $provider='CakeFoo') {
+		if (!isset($form)) {
+			return false;
+		}
+		if (!isset($control)) {
+			$control = array(
+				'text' => array('text'),
+				'address' => array('address', 'text'),
+				'email' => array('email'),
+				'date' => array('date'),
+			);
+		}
+		$data = array(
+			'Provider' => $provider,
+			'PartnerFields' => $fields,
+			'ControlFile' => $control,
+		);
+		$url = $this->url."forms/$form/fields/matches/";
+		$res = $this->http->post($url, $data, $this->__getAuthArray());
+		return $res;
+	}
+	
+	/**
 	 * request
 	 * @param str $type
 	 * @param array $options
@@ -298,6 +334,7 @@ class WufooSource extends DataSource {
 				$url .= "?".$options['params'];
 			}
 		}
+		//debug($url);
 		$res = $this->http->get($url, null, $this->__getAuthArray());
 		switch ($options['output']) {
 			// JSON
@@ -440,5 +477,4 @@ class WufooSource extends DataSource {
 		return $xml->toArray();
 	}
 	
-} // WufooSource
-?>
+}
