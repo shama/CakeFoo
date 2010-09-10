@@ -32,10 +32,6 @@
  * @version 1
  * @link http://www.kyletyoung.com/code/cakephp_wufoo_plugin
  * 
- * 
- * TODO:
- * 	Setup Caching
- * 
  */
 class WufooSource extends DataSource {
 	
@@ -53,6 +49,13 @@ class WufooSource extends DataSource {
 		'username'		=> '',
 		'api_secret'	=> '',
 		'version'		=> 'v3',
+		/**
+		 * cache
+		 * true = use CakeFoo cache
+		 * false = disable cache
+		 * 'cache-name' = cache config to use
+		 */
+		'cache'			=> true,
 	);
 	
 	/**
@@ -94,6 +97,10 @@ class WufooSource extends DataSource {
 		}
 		$this->http = new HttpSocket();
 		$this->url = 'https://'.$this->config['username'].'.wufoo.com/api/'.$this->config['version'].'/';
+		if ($this->config['cache'] === true) {
+			Cache::config('wufoo', array('engine'=> 'File', 'prefix' => 'wufoo_'));
+			$this->config['cache'] = 'wufoo';
+		}
 		return true;
 	}
 	
@@ -334,10 +341,20 @@ class WufooSource extends DataSource {
 				$url .= "?".$options['params'];
 			}
 		}
-		//debug($url);
-		$res = $this->http->get($url, null, $this->__getAuthArray());
+		$hash = hash('md4', $url);
+		if (($res = Cache::read($hash, $this->config['cache'])) === false || $this->config['cache'] === false) {
+			$res = $this->http->get($url, null, $this->__getAuthArray());
+			if ($this->config['cache'] !== false) {
+				Cache::write($hash, $res, $this->config['cache']);
+			}
+		}
 		switch ($options['output']) {
-			// JSON
+			case "xml":
+				if ($options['raw']) {
+					return $res;
+				} else {
+					return $this->__xmlToArray($res);
+				}
 			case "json":
 				if (substr($res, 0, 1) != "{") {
 					$this->_errors[] = $res;
@@ -347,13 +364,6 @@ class WufooSource extends DataSource {
 					return $res;
 				} else {
 					return Set::reverse(json_decode($res));
-				}
-			// XML
-			case "xml":
-				if ($options['raw']) {
-					return $res;
-				} else {
-					return $this->__xmlToArray($res);
 				}
 		}
 		return array();
