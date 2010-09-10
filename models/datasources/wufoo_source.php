@@ -87,6 +87,8 @@ class WufooSource extends DataSource {
 	
 	/**
 	 * init
+	 * Inits the socket, url and cache.
+	 * 
 	 * @param array $config
 	 * @return bool
 	 */
@@ -106,6 +108,7 @@ class WufooSource extends DataSource {
 	
 	/**
 	 * findForms
+	 * 
 	 * @param str $form
 	 * @return array
 	 */
@@ -124,6 +127,7 @@ class WufooSource extends DataSource {
 	
 	/**
 	 * findFields
+	 * 
 	 * @param str $form
 	 * @return array
 	 */
@@ -141,6 +145,7 @@ class WufooSource extends DataSource {
 	
 	/**
 	 * findEntries
+	 * 
 	 * @param str $form
 	 * @param str $params
 	 * @return array
@@ -159,6 +164,7 @@ class WufooSource extends DataSource {
 	
 	/**
 	 * saveEntry
+	 * 
 	 * @param str $form
 	 * @param array $data
 	 * @return EntryId | false
@@ -175,6 +181,7 @@ class WufooSource extends DataSource {
 	
 	/**
 	 * findUsers
+	 * 
 	 * @return array
 	 */
 	public function findUsers() {
@@ -188,6 +195,7 @@ class WufooSource extends DataSource {
 	
 	/**
 	 * findReports
+	 * 
 	 * @param str $report
 	 * @return array
 	 */
@@ -206,6 +214,7 @@ class WufooSource extends DataSource {
 	
 	/**
 	 * findWidgets
+	 * 
 	 * @param str $report
 	 * @return array
 	 */
@@ -223,6 +232,7 @@ class WufooSource extends DataSource {
 	
 	/**
 	 * findComments
+	 * 
 	 * @param str $form
 	 * @return array
 	 */
@@ -240,6 +250,7 @@ class WufooSource extends DataSource {
 	
 	/**
 	 * saveWebHook
+	 * 
 	 * @param str $form
 	 * @param array $data
 	 */
@@ -255,6 +266,7 @@ class WufooSource extends DataSource {
 	
 	/**
 	 * deleteWebHook
+	 * 
 	 * @param str $form
 	 * @param str $hash
 	 * @return Hash | false
@@ -275,6 +287,8 @@ class WufooSource extends DataSource {
 	
 	/**
 	 * login
+	 * Login a user to Wufoo.
+	 * 
 	 * @param array $data
 	 * @return array
 	 */
@@ -290,6 +304,7 @@ class WufooSource extends DataSource {
 	/**
 	 * fieldMatch
 	 * WARNING: This does not work yet!
+	 * Wufoo Field Matches API is still in development.
 	 * 
 	 * @param string $form
 	 * @param array $fields
@@ -321,6 +336,8 @@ class WufooSource extends DataSource {
 	
 	/**
 	 * request
+	 * Core method for GETing stuff from Wufoo.
+	 * 
 	 * @param str $type
 	 * @param array $options
 	 * 	output [xml|json]
@@ -372,6 +389,7 @@ class WufooSource extends DataSource {
 	/**
 	 * query
 	 * Provides an interface to methods.
+	 * 
 	 * @param str $query
 	 * @param array $data
 	 * @return mixed
@@ -432,6 +450,8 @@ class WufooSource extends DataSource {
 	
 	/**
 	 * __parseParams
+	 * Converts Cake conditions format to Wufoo filter query string.
+	 * 
 	 * @param array $params
 	 * @return str
 	 */
@@ -471,6 +491,8 @@ class WufooSource extends DataSource {
 	
 	/**
 	 * __xmlToArray
+	 * Simple check if XML and then converts to array.
+	 * 
 	 * @param str $xml
 	 * @param bool $ifXML
 	 * @return array
